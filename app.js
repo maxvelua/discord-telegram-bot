@@ -3,7 +3,7 @@ require('dotenv').config();
 const Discord = require('discord.js');
 const express = require('express');
 const bodyParser = require('body-parser');
-const routes = require('./routes');
+const routes = require('./routes/routes');
 const jsonParser = bodyParser.json();
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
