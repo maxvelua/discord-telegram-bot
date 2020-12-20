@@ -1,0 +1,10 @@
+// in bytes
+const TIER_0_MAX_FILE_SIZE = 8000000;
+const TIER_2_MAX_FILE_SIZE = 50000000;
+const TIER_3_MAX_FILE_SIZE = 100000000;
+
+module.exports = {
+    TIER_0_MAX_FILE_SIZE,
+    TIER_2_MAX_FILE_SIZE,
+    TIER_3_MAX_FILE_SIZE
+};

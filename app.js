@@ -7,8 +7,10 @@ const routes = require('./routes/routes');
 const jsonParser = bodyParser.json();
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
-if (!process.env.DISCORD_BOT_API_KEY) {
-    console.log('Add your telegram bot api key to .env file');
+if (!process.env.DISCORD_BOT_API_KEY ||
+    !process.env.DISCORD_SERVER_ID ||
+    !process.env.DISCORD_CHANNEL_ID) {
+    console.log('Pls check api keys in .env file');
     return;
 }
 
