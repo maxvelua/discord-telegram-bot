@@ -18,10 +18,10 @@ module.exports.sendContent = function (client) {
                 channel.send(content.description, { files: content.files }).then((message) => {
                     return res.send(`✅`);
                 }).catch((e) => {
-                    return res.send('Some errors occurred while sending a message ❌');
+                    return res.send('Виникла помилка при відправленні мема❌');
                 });
             } else {
-                return res.send('Problems with discord channel I can\'t send any message ❌');
+                return res.send('Виникли проблеми по стороні діскорд сервера, спробуйте пізніше (ні, щось зламалось)❌');
             }
         });
     }
