@@ -9,7 +9,8 @@ const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 if (!process.env.DISCORD_BOT_API_KEY ||
     !process.env.DISCORD_SERVER_ID ||
-    !process.env.DISCORD_CHANNEL_ID) {
+    !process.env.DISCORD_CHANNEL_ID ||
+    !process.env.PORT) {
     console.log('Pls check api keys in .env file');
     return;
 }
@@ -30,24 +31,8 @@ client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
 });
 
-client.on('message', msg => {
-    if (msg.channel.id === process.env.DISCORD_CHANNEL_ID) {
-        if (msg.content === 'ping') {
-            msg.reply('Pong!');
-        } else if (msg.content === `${PREFIX}cr`) {
-            msg.channel.messages.fetch().then(messages => {
-                messages.forEach((m, index) => {
-                    setTimeout(() => {
-                        m.delete()
-                    }, index * 100)
-                });
-            });
-        }
-    }
-});
-
 // start
 client.login(process.env.DISCORD_BOT_API_KEY);
-app.listen(process.env.PORT || 3001, () => {
-    console.log(`Discord app listening on port ${process.env.PORT || 3001}`);
+app.listen(process.env.PORT, () => {
+    console.log(`Discord app listening on port ${process.env.PORT}`);
 });
